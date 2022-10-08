@@ -8,24 +8,29 @@
     <link href="/dist/output.css" rel="stylesheet" />
   </head>
   <body class="bg-dark">
-    <header class="bg-dark flex justify-center text-center p-3">
-      <a href="" class="text-white text-2xl font-bold">RH Movies</a>
+    <header class="px-3 bg-dark flex p-3 container">
+      <a href="" class="text-white text-2xl font-bold ml-3">RH Movies</a>
     </header>
-    <!-- <section id="searchBar" class="flex justify-center mt-5">
+    <section id="searchBar" class="flex justify-center mt-5">
       <form>
         <h2 class="text-center text-xl text-white mb-2">Search Movie</h2>
-        <div class="mx-auto px-4 mb-3 items-center w-full">
-          <input type="text" id="title" name="title" placeholder="Search..." class="p-2 focus:ring-primary" />
-          <button type="submit" class="bg-primary py-2 px-3 font-bold">Search</button>
+        <div class="w-full mx-auto">
+          <div class="w-full">
+            <div class="px-4 mb-3 items-center w-full">
+              <input type="text" id="title" name="title" placeholder="Search..." class="p-2 focus:ring-primary" />
+              <button type="submit" class="bg-primary py-2 px-3 font-bold">Search</button>
+            </div>
+          </div>
         </div>
       </form>
-    </section> -->
+    </section>
     <section id="topMovies" class="container">
       <h1 class="text-white text-xl px-3">Now Playing</h1>
-      <div class="flex movie-container mt-3 gap-3 overflow-x-scroll px-3 py-7">
+      <div class="flex movie-container gap-3 overflow-x-scroll px-3 py-6">
         <div class="min-w-[200px] w-40 cursor-pointer hover:scale-110 hover:-translate-y-3 duration-300 ease-in-out">
           <img src="../dist/img/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg" alt="" class="rounded-md bg-cover" />
           <h5 class="text-white text-xl overflow-hidden">Orphan: First Kill</h5>
+          <h6 class="text-white text-lg">Rating:</h6>
         </div>
       </div>
     </section>
