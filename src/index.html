@@ -24,16 +24,16 @@
         </div>
       </form>
     </section>
-    <section id="topMovies" class="container">
-      <h1 class="text-white text-xl px-3">Now Playing</h1>
-      <div class="flex movie-container gap-3 overflow-x-scroll px-3 py-6">
-        <div class="min-w-[200px] w-40 cursor-pointer hover:scale-110 hover:-translate-y-3 duration-300 ease-in-out">
-          <img src="../dist/img/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg" alt="" class="rounded-md bg-cover" />
-          <h5 class="text-white text-xl overflow-hidden">Orphan: First Kill</h5>
-          <h6 class="text-white text-lg">Rating:</h6>
-        </div>
-      </div>
-    </section>
+    <main>
+      <section class="container">
+        <h1 class="text-white text-xl px-3">Now Playing</h1>
+        <div class="movie-container" id="nowPlayingMovies"></div>
+      </section>
+      <section class="container">
+        <h1 class="text-white text-xl px-3">Upcoming</h1>
+        <div class="movie-container" id="upcomingMovies"></div>
+      </section>
+    </main>
     <script src="./script/app.js" type="module"></script>
   </body>
 </html>

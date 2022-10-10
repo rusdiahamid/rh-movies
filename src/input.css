@@ -28,3 +28,18 @@
 
 @tailwind components;
 @tailwind utilities;
+
+.movie-container {
+  @apply flex gap-3 overflow-x-scroll px-3 py-6;
+}
+.movie-card {
+  @apply min-w-[160px] w-40  hover:scale-110 hover:-translate-y-1 duration-300 ease-in-out;
+}
+
+.rating-text {
+  @apply text-white text-sm mt-3;
+}
+
+.movie-title {
+  @apply text-white text-base overflow-hidden hover:cursor-pointer;
+}
