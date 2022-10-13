@@ -3,23 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>RHMovies</title>
     <link href="../dist/output.css" rel="stylesheet" />
+    <script defer="defer" src="bundle.js"></script>
   </head>
   <body class="bg-dark">
-    <header class="px-3 bg-dark flex p-3 container">
-      <a href="" class="text-white text-2xl font-bold ml-3">RH Movies</a>
-    </header>
+    <header class="px-3 bg-dark flex p-3 container"><a href="" class="text-white text-2xl font-bold ml-3">RH Movies</a></header>
     <section id="searchBar" class="flex justify-center mt-5">
       <form>
         <h2 class="text-center text-xl text-white mb-2">Search Movie</h2>
         <div class="w-full mx-auto">
           <div class="w-full">
-            <div class="px-4 mb-3 items-center w-full">
-              <input type="text" id="title" name="title" placeholder="Search..." class="p-2 focus:ring-primary" />
-              <button type="submit" class="bg-primary py-2 px-3 font-bold">Search</button>
-            </div>
+            <div class="px-4 mb-3 items-center w-full"><input id="title" name="title" placeholder="Search..." class="p-2 focus:ring-primary" /> <button type="submit" class="bg-primary py-2 px-3 font-bold">Search</button></div>
           </div>
         </div>
       </form>
