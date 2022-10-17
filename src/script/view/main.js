@@ -56,7 +56,10 @@ const main = () => {
 
     const casts = c.cast;
     const crews = c.crew;
-    const director = crews.filter((crew) => crew.job === 'Director').map((director) => director.name);
+    const director = crews
+      .filter((crew) => crew.job === 'Director')
+      .map((director) => director.name.trim())
+      .join(' • ');
     const writer = crews
       .filter((crew) => crew.job === 'Writer')
       .map((writer) => writer.name.trim())
