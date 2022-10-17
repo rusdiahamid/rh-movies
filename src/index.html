@@ -5,33 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RHMovies</title>
-    <link href="../dist/output.css" rel="stylesheet" />
   </head>
   <body class="bg-dark">
-    <header class="px-3 bg-dark flex p-3 container">
+    <header class="px-3 bg-dark flex p-3 justify-between container">
       <a href="" class="text-white text-2xl font-bold ml-3">RH Movies</a>
+      <span class="text-primary search-movie align-middle">Cari</span>
     </header>
-    <section id="searchBar" class="flex justify-center mt-5">
+    <section id="searchBar" class="justify-center mt-5 hidden">
       <form>
         <h2 class="text-center text-xl text-white mb-2">Search Movie</h2>
         <div class="w-full mx-auto">
           <div class="w-full">
             <div class="px-4 mb-3 items-center w-full">
-              <input type="text" id="title" name="title" placeholder="Search..." class="p-2 focus:ring-primary" />
-              <button type="submit" class="bg-primary py-2 px-3 font-bold">Search</button>
+              <input type="text" id="title" name="title" placeholder="Search..." class="p-2 focus:ring-primary keyword" />
+              <button type="submit" class="bg-primary py-2 px-3 font-bold"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
             </div>
           </div>
         </div>
       </form>
     </section>
-    <main>
+    <main class="w-full">
+      <section class="container hidden" id="searchResult">
+        <h1 class="text-white text-xl px-3">Search Results</h1>
+        <div class="results-container flex flex-wrap gap-3 justify-center"></div>
+      </section>
       <section class="container">
         <h1 class="text-white text-xl px-3">Now Playing</h1>
         <div class="movie-container" id="nowPlayingMovies"></div>
       </section>
       <section class="container">
-        <h1 class="text-white text-xl px-3">Upcoming</h1>
-        <div class="movie-container" id="upcomingMovies"></div>
+        <h1 class="text-white text-xl px-3">Popular Movies</h1>
+        <div class="movie-container" id="popularMovies"></div>
       </section>
     </main>
   </body>
