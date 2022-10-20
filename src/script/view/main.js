@@ -1,3 +1,4 @@
+import '../component/search-bar.js';
 import { MovieSource } from '../data/movie-source.js';
 import moment from 'moment';
 
@@ -12,12 +13,12 @@ const main = () => {
     }
   });
 
-  const btnSearch = document.querySelector('.search-movie');
-  btnSearch.addEventListener('click', () => {
-    const searchBar = document.querySelector('#searchBar');
-    searchBar.classList.toggle('hidden');
-    searchBar.classList.toggle('flex');
-  });
+  // const btnSearch = document.querySelector('.search-movie');
+  // btnSearch.addEventListener('click', () => {
+  //   const searchBar = document.querySelector('#searchBar');
+  //   searchBar.classList.toggle('hidden');
+  //   searchBar.classList.toggle('flex');
+  // });
 
   document.addEventListener('keyup', async function (e) {
     if (e.target.classList.contains('keyword')) {
@@ -109,7 +110,7 @@ const main = () => {
     
     </div>
     <div>
-    <h1 class="text-white text-xl">Related Movie</h1>
+    <h1 class="text-white text-xl">Recommendations</h1>
       <div class="mt-5">
         <div class="flex gap-3 p-3 overflow-x-scroll">
          

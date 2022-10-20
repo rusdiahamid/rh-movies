@@ -29,6 +29,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-dark;
+}
 .movie-container {
   @apply flex gap-3 overflow-x-scroll px-3 py-6;
 }
@@ -46,4 +49,12 @@
 
 .show-detail {
   @apply hover:cursor-pointer hover:text-primary;
+}
+
+app-bar {
+  @apply container flex py-4;
+}
+
+search-bar {
+  @apply ml-auto  lg:w-64;
 }

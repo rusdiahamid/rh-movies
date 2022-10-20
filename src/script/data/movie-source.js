@@ -24,13 +24,20 @@ export class MovieSource {
       .then((response) => response);
   }
   static getRelatedMoviea(id) {
-    return fetch(`${baseUrl}movie/${id}/similar?api_key=${apiKey}&language=en-US&page=1`)
+    return fetch(`${baseUrl}movie/${id}/recommendations?api_key=${apiKey}&language=en-US&page=1`)
       .then((response) => response.json())
-      .then((response) => response.results);
+      .then((response) => response.results)
+      .catch((response) => console.log('NOT OK! : ' + response));
   }
   static searchMovie(keyword) {
     return fetch(`${baseUrl}search/movie?api_key=${apiKey}&language=en-US&query=${keyword}&page=1&include_adult=false&region=ID`)
       .then((response) => response.json())
-      .then((response) => response.results);
+      .then((response) => {
+        if (response.results) {
+          return Promise.resolve(response.results);
+        } else {
+          return Promise.reject(`${keyword} is not found`);
+        }
+      });
   }
 }
