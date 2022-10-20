@@ -52,9 +52,9 @@ body {
 }
 
 app-bar {
-  @apply container flex py-4;
+  @apply container flex px-3 py-4;
 }
 
 search-bar {
-  @apply ml-auto  lg:w-64;
+  @apply ml-auto my-auto lg:w-72;
 }

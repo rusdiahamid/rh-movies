@@ -13,13 +13,6 @@ const main = () => {
     }
   });
 
-  // const btnSearch = document.querySelector('.search-movie');
-  // btnSearch.addEventListener('click', () => {
-  //   const searchBar = document.querySelector('#searchBar');
-  //   searchBar.classList.toggle('hidden');
-  //   searchBar.classList.toggle('flex');
-  // });
-
   document.addEventListener('keyup', async function (e) {
     if (e.target.classList.contains('keyword')) {
       const resultsContainer = document.querySelector('#searchResult');
