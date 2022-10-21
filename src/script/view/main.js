@@ -1,4 +1,5 @@
 import '../component/search-bar.js';
+import '../component/popular-movies';
 import { MovieSource } from '../data/movie-source.js';
 import moment from 'moment';
 
@@ -127,25 +128,32 @@ const main = () => {
     `;
   }
 
-  const movieOnload = () => {
-    nowPlayingMovies();
-    popularMovies();
-  };
-  const nowPlayingMovies = async () => {
-    const movies = await MovieSource.getPlayingMovies();
-    let cards = '';
-    movies.filter((movie) => movie.poster_path !== null).forEach((m) => (cards += showCard(m)));
-    const movieContainer = document.querySelector('#nowPlayingMovies');
-    movieContainer.innerHTML = cards;
-  };
+  // const nowPlayingMovies = async () => {
+  //   const movies = await MovieSource.getPlayingMovies();
+  //   let cards = '';
+  //   movies.filter((movie) => movie.poster_path !== null).forEach((m) => (cards += showCard(m)));
+  //   const movieContainer = document.querySelector('#nowPlayingMovies');
+  //   movieContainer.innerHTML = cards;
+  // };
 
+  const popularMoviesList = document.querySelector('popular-movies');
   const popularMovies = async () => {
+    // try {
+    //   const movies = await MovieSource.getPopularMovies();
+    //   console.log(movies); // renderResult(movies);
+    // } catch (message) {
+    //   fallbackResult(message);
+    // }
+
     const movies = await MovieSource.getPopularMovies();
-    let cards = '';
-    movies.forEach((m) => (cards += showCard(m)));
-    const movieContainer = document.querySelector('#popularMovies');
-    movieContainer.innerHTML = cards;
+    console.log(movies);
+    // let cards = '';
+    // movies.forEach((m) => (cards += showCard(m)));
+    // const movieContainer = document.querySelector('#popularMovies');
+    // movieContainer.innerHTML = cards;
   };
+  const renderResult = (results) => (popularMoviesList.movies = results);
+  const fallbackResult = (message) => popularMoviesList.renderError(message);
 
   function showCard(m) {
     return `
@@ -157,6 +165,10 @@ const main = () => {
     </div>
     `;
   }
+  const movieOnload = () => {
+    // nowPlayingMovies();
+    popularMovies();
+  };
 
   movieOnload();
 };
