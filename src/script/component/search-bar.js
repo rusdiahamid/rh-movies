@@ -5,10 +5,19 @@ class SearchBar extends HTMLElement {
     this.render();
   }
 
+  set keyupEvent(event) {
+    this._keyupEvent = event;
+    this.render();
+  }
+
+  get value() {
+    return this.querySelector('#inputSearch').value;
+  }
+
   render() {
     this.innerHTML = `
     <div class="relative">
-    <input placeholder="Search Movie..." type="text" id="inputSearch" class="w-full lg:w-72 text-white pl-3 pr-10 py-2 rounded-lg  hidden lg:block ml-auto bg-dark border border-t-0 border-r-0 border-l-0 border-b-secondary focus:ring-primary focus:border-primary focus:outline-none keyword"/>
+    <input placeholder="Search Movie..." type="search" id="inputSearch" class="w-full lg:w-72 text-white pl-3 pr-10 py-2 rounded-lg  hidden lg:block ml-auto bg-dark border border-t-0 border-r-0 border-l-0 border-b-secondary focus:ring-primary focus:border-primary focus:outline-none keyword"/>
     <span class="text-white absolute -top-[10px] lg:opacity-50 lg:top-2 right-3 my-auto hover:cursor-pointer btn-search">${feather.icons.search.toSvg()}</span>
     <div>
     `;
@@ -28,6 +37,8 @@ class SearchBar extends HTMLElement {
       document.querySelector('.logo').classList.remove('hidden');
       document.querySelector('search-bar').classList.remove('w-full');
     });
+
+    this.querySelector('#inputSearch').addEventListener('keyup', this._keyupEvent);
   }
 }
 

@@ -2,6 +2,20 @@ const baseUrl = 'https://api.themoviedb.org/3/';
 const apiKey = '739949faaf1aeda8232538dbe179ea8d';
 
 export class MovieSource {
+  static searchMovie(keyword) {
+    if (keyword.length < 1 || keyword === ' ') {
+    } else {
+      return fetch(`${baseUrl}search/movie?api_key=${apiKey}&language=en-US&query=${keyword}&page=1&include_adult=false&region=ID`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .then((response) => response.results);
+    }
+  }
+
   static getPlayingMovies() {
     return fetch(`${baseUrl}movie/now_playing?api_key=${apiKey}&language=en-US&page=1&region=ID`)
       .then((response) => response.json())
@@ -36,16 +50,5 @@ export class MovieSource {
       .then((response) => response.json())
       .then((response) => response.results)
       .catch((response) => console.log('NOT OK! : ' + response));
-  }
-  static searchMovie(keyword) {
-    return fetch(`${baseUrl}search/movie?api_key=${apiKey}&language=en-US&query=${keyword}&page=1&include_adult=false&region=ID`)
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.results) {
-          return Promise.resolve(response.results);
-        } else {
-          return Promise.reject(`${keyword} is not found`);
-        }
-      });
   }
 }

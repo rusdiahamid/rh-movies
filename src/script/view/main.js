@@ -1,4 +1,5 @@
 import '../component/search-bar.js';
+import '../component/search-result.js';
 import '../component/popular-movies.js';
 import '../component/playing-movies.js';
 import { MovieSource } from '../data/movie-source.js';
@@ -15,26 +16,38 @@ const main = () => {
     }
   });
 
-  document.addEventListener('keyup', async function (e) {
-    if (e.target.classList.contains('keyword')) {
-      const resultsContainer = document.querySelector('#searchResult');
-      resultsContainer.classList.remove('hidden');
-      const results = await MovieSource.searchMovie(e.target.value);
-      let cards = '';
-      results.filter((m) => m.poster_path !== null).forEach((m) => (cards += renderResults(m)));
-      const movieContainer = document.querySelector('.results-container');
-      movieContainer.innerHTML = cards;
+  const popularMoviesList = document.querySelector('popular-movies');
+  const popularMovies = async () => {
+    try {
+      const movies = await MovieSource.getPopularMovies();
+      popularMoviesList.movies = movies;
+    } catch (message) {
+      popularMoviesList.renderError(message);
     }
-  });
+  };
+  const nowPlayingMovies = async () => {
+    try {
+      const playingMoviesList = document.querySelector('playing-movies');
+      const movies = await MovieSource.getPlayingMovies();
+      playingMoviesList.movies = movies;
+    } catch (message) {
+      playingMoviesList.renderError(message);
+    }
+  };
 
-  function renderResults(m) {
-    return `<div class="movie-card">
-    <img src="https://image.tmdb.org/t/p/w500${m.poster_path}" alt="${m.title}" class="min-h-[240px] object-cover rounded-md bg-cover" />
-    <span class="rating-text">⭐ ${m.vote_average}</span>
-    <h5 class="movie-title show-detail" id="${m.id}">${m.title}</h5>
-    <small class="text-white">${moment(m.release_date, 'YYYY-MM-DD').format('YYYY')}</small>
-  </div>`;
-  }
+  const searchElement = document.querySelector('search-bar');
+  const searchResult = document.querySelector('search-result');
+
+  const onInputSearch = async () => {
+    try {
+      const movies = await MovieSource.searchMovie(searchElement.value);
+      searchResult.movies = movies;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  searchElement.keyupEvent = onInputSearch;
 
   const renderMovieDetail = (m, c, r) => {
     const movieDetail = showMovieDetail(m, c, r);
@@ -131,25 +144,6 @@ const main = () => {
   const movieOnload = () => {
     popularMovies();
     nowPlayingMovies();
-  };
-
-  const popularMoviesList = document.querySelector('popular-movies');
-  const popularMovies = async () => {
-    try {
-      const movies = await MovieSource.getPopularMovies();
-      popularMoviesList.movies = movies;
-    } catch (message) {
-      popularMoviesList.renderError(message);
-    }
-  };
-  const nowPlayingMovies = async () => {
-    try {
-      const playingMoviesList = document.querySelector('playing-movies');
-      const movies = await MovieSource.getPlayingMovies();
-      playingMoviesList.movies = movies;
-    } catch (message) {
-      playingMoviesList.renderError(message);
-    }
   };
 
   movieOnload();
