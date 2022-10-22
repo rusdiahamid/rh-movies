@@ -11,7 +11,15 @@ export class MovieSource {
   static getPopularMovies() {
     return fetch(`${baseUrl}movie/popular?api_key=${apiKey}&language=en-US&page=1&region=ID`)
       .then((response) => response.json())
-      .then((response) => response.results);
+      .then((response) => {
+        {
+          if (response.results) {
+            return Promise.resolve(response.results);
+          } else {
+            return Promise.reject(`${keyword} is not found`);
+          }
+        }
+      });
   }
   static getMovieDetail(id) {
     return fetch(`${baseUrl}movie/${id}?api_key=${apiKey}&language=en-US`)

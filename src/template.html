@@ -9,20 +9,14 @@
   <body>
     <header>
       <app-bar></app-bar>
+      <search-bar></search-bar>
     </header>
     <main>
+      <playing-movies></playing-movies>
       <popular-movies></popular-movies>
       <section class="container hidden" id="searchResult">
         <h1 class="text-white text-xl px-3">Search Results</h1>
         <div class="results-container flex flex-wrap gap-3 justify-center"></div>
-      </section>
-      <section class="container">
-        <h1 class="text-white text-xl px-3">Now Playing</h1>
-        <div class="movie-container" id="nowPlayingMovies"></div>
-      </section>
-      <section class="container">
-        <h1 class="text-white text-xl px-3">Popular Movies</h1>
-        <div class="movie-container" id="popularMovies"></div>
       </section>
     </main>
   </body>

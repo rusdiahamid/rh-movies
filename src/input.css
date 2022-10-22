@@ -32,6 +32,12 @@
 body {
   @apply bg-dark;
 }
+main {
+  @apply container;
+}
+movie-container {
+  @apply flex gap-3 overflow-x-scroll px-3 py-6;
+}
 .movie-container {
   @apply flex gap-3 overflow-x-scroll px-3 py-6;
 }
@@ -51,10 +57,13 @@ body {
   @apply hover:cursor-pointer hover:text-primary;
 }
 
+header {
+  @apply container flex;
+}
 app-bar {
-  @apply container flex px-3 py-4;
+  @apply py-4;
 }
 
 search-bar {
-  @apply ml-auto my-auto lg:w-72;
+  @apply ml-auto py-4 my-auto lg:w-72;
 }

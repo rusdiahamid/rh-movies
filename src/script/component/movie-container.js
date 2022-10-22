@@ -1,6 +1,4 @@
-class MovieContainer extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
-  render() {}
-}
+import '../component/movie-item.js';
+
+class MovieContainer extends HTMLElement {}
+customElements.define('movie-container', MovieContainer);

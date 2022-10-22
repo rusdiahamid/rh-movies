@@ -1,5 +1,6 @@
 import '../component/search-bar.js';
-import '../component/popular-movies';
+import '../component/popular-movies.js';
+import '../component/playing-movies.js';
 import { MovieSource } from '../data/movie-source.js';
 import moment from 'moment';
 
@@ -127,47 +128,28 @@ const main = () => {
         
     `;
   }
-
-  // const nowPlayingMovies = async () => {
-  //   const movies = await MovieSource.getPlayingMovies();
-  //   let cards = '';
-  //   movies.filter((movie) => movie.poster_path !== null).forEach((m) => (cards += showCard(m)));
-  //   const movieContainer = document.querySelector('#nowPlayingMovies');
-  //   movieContainer.innerHTML = cards;
-  // };
+  const movieOnload = () => {
+    popularMovies();
+    nowPlayingMovies();
+  };
 
   const popularMoviesList = document.querySelector('popular-movies');
   const popularMovies = async () => {
-    // try {
-    //   const movies = await MovieSource.getPopularMovies();
-    //   console.log(movies); // renderResult(movies);
-    // } catch (message) {
-    //   fallbackResult(message);
-    // }
-
-    const movies = await MovieSource.getPopularMovies();
-    console.log(movies);
-    // let cards = '';
-    // movies.forEach((m) => (cards += showCard(m)));
-    // const movieContainer = document.querySelector('#popularMovies');
-    // movieContainer.innerHTML = cards;
+    try {
+      const movies = await MovieSource.getPopularMovies();
+      popularMoviesList.movies = movies;
+    } catch (message) {
+      popularMoviesList.renderError(message);
+    }
   };
-  const renderResult = (results) => (popularMoviesList.movies = results);
-  const fallbackResult = (message) => popularMoviesList.renderError(message);
-
-  function showCard(m) {
-    return `
-    <div class="movie-card">
-      <img src="https://image.tmdb.org/t/p/w500${m.poster_path}" alt="${m.title}" class="min-h-[240px] object-cover rounded-md bg-cover" />
-      <span class="rating-text">⭐ ${m.vote_average}</span>
-      <h5 class="movie-title show-detail" id="${m.id}">${m.title}</h5>
-      <small class="text-white">${moment(m.release_date, 'YYYY-MM-DD').format('YYYY')}</small>
-    </div>
-    `;
-  }
-  const movieOnload = () => {
-    // nowPlayingMovies();
-    popularMovies();
+  const nowPlayingMovies = async () => {
+    try {
+      const playingMoviesList = document.querySelector('playing-movies');
+      const movies = await MovieSource.getPlayingMovies();
+      playingMoviesList.movies = movies;
+    } catch (message) {
+      playingMoviesList.renderError(message);
+    }
   };
 
   movieOnload();
