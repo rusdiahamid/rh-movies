@@ -1,13 +1,12 @@
-import '../component/movie-item.js';
-
-class PopularMovies extends HTMLElement {
+import '../component/movie-item';
+class RelatedMovies extends HTMLElement {
   set movies(movies) {
     this._movies = movies;
     this.render();
   }
 
   render() {
-    this.innerHTML = `<h1 class="text-white text-xl px-3">Popular Movies</h1>`;
+    this.innerHTML = `<h1 class="text-white text-xl px-3">Related Movies</h1>`;
     const movieContainer = document.createElement('movie-container');
     this.append(movieContainer);
     this._movies
@@ -18,10 +17,6 @@ class PopularMovies extends HTMLElement {
         movieContainer.appendChild(movieItemElement);
       });
   }
-  renderError(message) {
-    popularMoviesList.innerHTML = '';
-    popularMoviesList.innerHTML += `<h2 class="placeholder">${message}</h2>`;
-  }
 }
 
-customElements.define('popular-movies', PopularMovies);
+customElements.define('related-movies', RelatedMovies);

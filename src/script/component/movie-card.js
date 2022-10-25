@@ -1,1 +1,0 @@
-class MovieCard extends HTMLElement {}
