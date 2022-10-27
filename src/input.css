@@ -38,13 +38,17 @@ main {
 movie-container {
   @apply flex gap-3 overflow-x-scroll px-3 py-6;
 }
-.movie-container {
-  @apply flex gap-3 overflow-x-scroll px-3 py-6;
+.section-title {
+  @apply text-white text-xl px-3;
 }
+
 .movie-card {
   @apply min-w-[160px] object-cover w-40  hover:scale-110 hover:-translate-y-1 duration-300 ease-in-out hover:text-primary;
 }
 
+.movie-card-poster {
+  @apply min-h-[240px] object-cover rounded-md bg-cover;
+}
 .rating-text {
   @apply text-white text-sm mt-3;
 }
@@ -69,5 +73,5 @@ search-bar {
 }
 
 movie-container {
-  @apply bg-dark;
+  @apply bg-dark flex;
 }

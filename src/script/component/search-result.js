@@ -1,4 +1,5 @@
 import '../component/movie-item.js';
+import Swal from 'sweetalert2';
 
 class SearchResult extends HTMLElement {
   set movies(movies) {
@@ -15,7 +16,8 @@ class SearchResult extends HTMLElement {
     const movieContainer = document.createElement('movie-container');
     this.append(movieContainer);
     if (!this._movies) {
-      alert('type something');
+      Swal.fire('something went wrong!', `you haven't typed anything yet!`, 'error');
+      movieContainer.innerHTML = `<h1 class="text-white mx-auto text-xl">you haven't typed anything yet!</h1>`;
     } else if (this._movies.length < 1) {
       movieContainer.innerHTML = `<h1 class="text-white mx-auto text-xl">No results found for <span class="font-bold">${this.value}</span>.</h1>`;
     } else {
