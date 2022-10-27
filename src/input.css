@@ -65,5 +65,9 @@ app-bar {
 }
 
 search-bar {
-  @apply ml-auto py-4 my-auto lg:w-72;
+  @apply ml-auto py-4 my-auto lg:w-96;
+}
+
+movie-container {
+  @apply bg-dark;
 }

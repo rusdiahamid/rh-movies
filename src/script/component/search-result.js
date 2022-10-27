@@ -6,19 +6,25 @@ class SearchResult extends HTMLElement {
     this.render();
   }
 
+  get value() {
+    return document.querySelector('#inputSearch').value;
+  }
+
   render() {
-    this.innerHTML = `<h1 class="text-white text-xl px-3">Search Result</h1>`;
+    this.innerHTML = `<h1 class="text-white text-xl px-3">Search Results</h1>`;
     const movieContainer = document.createElement('movie-container');
     this.append(movieContainer);
     if (!this._movies) {
-      document.querySelector('search-result').classList.add('hidden');
+      alert('type something');
+    } else if (this._movies.length < 1) {
+      movieContainer.innerHTML = `<h1 class="text-white mx-auto text-xl">No results found for <span class="font-bold">${this.value}</span>.</h1>`;
     } else {
       this._movies
-        .filter((movie) => movie.poster_path !== null)
+        .filter((movie) => movie.backdrop_path !== null)
         .forEach((movie) => {
-          const movieItemElement = document.createElement('movie-item');
-          movieItemElement.movie = movie;
-          movieContainer.appendChild(movieItemElement);
+          const resultItemElement = document.createElement('movie-item');
+          resultItemElement.movie = movie;
+          movieContainer.appendChild(resultItemElement);
         });
     }
   }

@@ -58,8 +58,8 @@ class DetailMovie extends HTMLElement {
               .slice(0, 15)
               .map((cast) =>
                 `
-            <div class="max-w-[120px]">          
-              <img src="https://image.tmdb.org/t/p/w500${cast.profile_path}" class="rounded-md min-w-[90px]">
+            <div class="max-w-[150px]">          
+              <img src="https://image.tmdb.org/t/p/w500${cast.profile_path}" class="rounded-full min-w-[120px] h-[120px] object-cover object-top">
               <figcation class="text-center">
               <h5 class="text-white text-sm font-semibold">${cast.name}</h5>
               <h6 class="text-gray-400 text-xs">${cast.character}</h6>
@@ -73,11 +73,11 @@ class DetailMovie extends HTMLElement {
     </div>
     </div>
     </div>
-    <related-movies></related-movies>
     `;
 
-    // const recommendPage = document.createElement('related-movies');
-    // this.append(recommendPage);
+    const recommendPage = document.createElement('related-movies');
+    this.append(recommendPage);
+    recommendPage.details = this._details;
   }
 }
 

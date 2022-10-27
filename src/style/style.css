@@ -631,6 +631,14 @@ video {
   position: relative;
 }
 
+.-top-\[18px\] {
+  top: -18px;
+}
+
+.-right-1 {
+  right: -0.25rem;
+}
+
 .-top-\[10px\] {
   top: -10px;
 }
@@ -639,8 +647,12 @@ video {
   right: 0.75rem;
 }
 
-.top-1 {
-  top: 0.25rem;
+.top-0 {
+  top: 0px;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .my-auto {
@@ -663,8 +675,8 @@ video {
   margin-bottom: 0.5rem;
 }
 
-.mb-5 {
-  margin-bottom: 1.25rem;
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 
 .mb-2 {
@@ -683,20 +695,20 @@ video {
   margin-left: auto;
 }
 
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
-
 .flex {
   display: flex;
 }
 
 .hidden {
   display: none;
+}
+
+.h-\[100px\] {
+  height: 100px;
+}
+
+.h-\[120px\] {
+  height: 120px;
 }
 
 .min-h-\[240px\] {
@@ -707,12 +719,12 @@ video {
   width: 100%;
 }
 
-.min-w-\[90px\] {
-  min-width: 90px;
+.min-w-\[100px\] {
+  min-width: 100px;
 }
 
-.min-w-\[150px\] {
-  min-width: 150px;
+.min-w-\[120px\] {
+  min-width: 120px;
 }
 
 .max-w-max {
@@ -727,6 +739,23 @@ video {
 
 .max-w-\[150px\] {
   max-width: 150px;
+}
+
+@-webkit-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  -webkit-animation: spin 5s linear infinite;
+          animation: spin 5s linear infinite;
 }
 
 .flex-col {
@@ -755,6 +784,11 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-r-xl {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
 }
 
 .border {
@@ -821,8 +855,9 @@ video {
      object-fit: cover;
 }
 
-.p-3 {
-  padding: 0.75rem;
+.object-top {
+  -o-object-position: top;
+     object-position: top;
 }
 
 .px-3 {
@@ -910,10 +945,6 @@ video {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
-.opacity-50 {
-  opacity: 0.5;
 }
 
 .blur {
@@ -1089,8 +1120,13 @@ search-bar {
 
 @media (min-width: 1024px) {
   search-bar {
-    width: 18rem;
+    width: 24rem;
   }
+}
+
+movie-container {
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 28 50 / var(--tw-bg-opacity));
 }
 
 .hover\:cursor-pointer:hover {
@@ -1113,6 +1149,10 @@ search-bar {
 }
 
 @media (min-width: 1024px) {
+  .lg\:top-\[1px\] {
+    top: 1px;
+  }
+
   .lg\:top-2 {
     top: 0.5rem;
   }
@@ -1125,8 +1165,8 @@ search-bar {
     display: block;
   }
 
-  .lg\:w-72 {
-    width: 18rem;
+  .lg\:w-96 {
+    width: 24rem;
   }
 
   .lg\:w-fit {
