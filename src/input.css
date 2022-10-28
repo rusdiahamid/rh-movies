@@ -72,6 +72,18 @@ search-bar {
   @apply ml-auto py-4 my-auto lg:w-96;
 }
 
+.input-search {
+  @apply w-full lg:w-96 text-white pl-3 pr-10 py-2 rounded-lg lg:block ml-auto bg-dark border border-t-0 border-r-0 border-l-0 border-b-secondary focus:ring-primary focus:border-primary focus:outline-none;
+}
+
+.loader-icon {
+  @apply z-10 text-white rounded-r-xl absolute py-2 px-2 -top-[18px] lg:top-[1px]  -right-1 my-auto animate-spin-slow;
+}
+
+.btn-show-search {
+  @apply text-white absolute lg:opacity-50 -top-[10px] lg:top-2 right-3 my-auto hover:cursor-pointer;
+}
+
 movie-container {
   @apply bg-dark flex;
 }
