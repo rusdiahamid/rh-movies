@@ -1,4 +1,4 @@
-import { querySelectorAllDeep, querySelectorDeep } from 'query-selector-shadow-dom';
+import { querySelectorDeep } from 'query-selector-shadow-dom';
 import '../component/search-bar.js';
 import '../component/search-result.js';
 import '../component/popular-movies.js';
@@ -23,8 +23,7 @@ const main = () => {
 
   const onInputSearch = (e) => {
     querySelectorDeep('.loader').classList.remove('hidden');
-    // document.querySelector('body > header > search-bar').shadowRoot.querySelector('.loader').classList.remove('hidden');
-    document.querySelector('body > header > search-bar').shadowRoot.querySelector('.btn-show-search').classList.add('hidden');
+    querySelectorDeep('.btn-show-search').classList.add('hidden');
     if (e.keyCode === 13) {
       searchExecute();
     }
