@@ -1,5 +1,4 @@
 import '../component/movie-item.js';
-import Swal from 'sweetalert2';
 
 class SearchResult extends HTMLElement {
   set movies(movies) {

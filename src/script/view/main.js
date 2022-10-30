@@ -13,8 +13,12 @@ const main = () => {
   const searchElement = document.querySelector('search-bar');
 
   const popularMovies = async () => {
-    const movies = await MovieSource.getPopularMovies();
-    popularMoviesList.movies = movies;
+    try {
+      const movies = await MovieSource.getPopularMovies();
+      popularMoviesList.movies = movies;
+    } catch (error) {
+      popularMoviesList.renderError = error;
+    }
   };
   const nowPlayingMovies = async () => {
     const movies = await MovieSource.getPlayingMovies();
@@ -42,7 +46,6 @@ const main = () => {
   };
 
   searchElement.keyupEvent = onInputSearch;
-
 
   document.addEventListener('click', async function (e) {
     if (e.target.classList.contains('show-detail')) {

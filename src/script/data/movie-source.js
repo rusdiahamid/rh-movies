@@ -30,14 +30,17 @@ export class MovieSource {
   }
 
   static getPopularMovies() {
-    return fetch(`${baseUrl}movie/popular?api_key=${apiKey}&language=en-US&page=1&region=ID`)
+    return fetch(`${baseUrl}movie/popular?ap_key=${apiKey}&language=en-US&page=1&region=ID`)
       .then((response) => response.json())
       .then((response) => {
         {
+          console.log(response.results)
           if (response.results) {
-            return Promise.resolve(response.results);
+            // return Promise.resolve(response.results);
+            console.log(Promise.resolve(response.results));
           } else {
-            return Promise.reject(`${keyword} is not found`);
+            return Promise.reject(`Movie is not found`);
+            // console.log(Promise.reject(`Movie not found`));
           }
         }
       });
