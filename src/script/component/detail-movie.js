@@ -1,6 +1,6 @@
-import moment from 'moment';
 import '../component/movie-item.js';
 import '../component/ralated-movies.js';
+import moment from 'moment';
 class DetailMovie extends HTMLElement {
   set details(details) {
     this._details = details;

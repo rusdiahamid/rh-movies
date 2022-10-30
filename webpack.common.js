@@ -2,7 +2,25 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './src/app.js',
+  entry: {
+    // main: './src/app.js',
+    // vendor: './src/vendor.js'
+    main: {
+      import: './src/app.js',
+      dependOn: 'shared',
+    },
+    vendor: {
+      import: './src/vendor.js',
+      dependOn: 'shared',
+    },
+    shared: ['moment', 'feather-icons', 'sweetalert2', 'query-selector-shadow-dom', 'regenerator-runtime'],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+
+  },
   devtool: false,
   module: {
     rules: [

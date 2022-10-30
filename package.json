@@ -86,6 +86,7 @@
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./src/style/style.css --watch",
     "serve": "webpack serve --config webpack.dev.js",
+    "start-dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {

@@ -1,4 +1,4 @@
-import 'regenerator-runtime';
+import './vendor.js';
 import './script/component/app-bar';
 import './style/style.css';
 import main from './script/view/main.js';
