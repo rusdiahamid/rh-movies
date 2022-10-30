@@ -67,6 +67,9 @@ header {
 app-bar {
   @apply py-4;
 }
+.logo {
+  @apply my-auto text-2xl px-3 font-bold text-transparent bg-clip-text bg-gradient-to-tr from-white to-primary;
+}
 
 search-bar {
   @apply ml-auto py-4 my-auto lg:w-96;

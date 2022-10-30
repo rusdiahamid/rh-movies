@@ -13,7 +13,6 @@ class RelatedMovies extends HTMLElement {
     this.innerHTML = `<h1 class="text-white text-xl px-3">Related Movies</h1>`;
     const movieContainer = document.createElement('movie-container');
     this.append(movieContainer);
-    console.log(this._movies);
     if (this._movies.length === 0) {
       movieContainer.innerHTML = `<h1 class="text-white text-lg leading-relaxed">Sorry we cannot find related movies for <span class="font-bold">${this._details.title}</span>.</h1>`;
     }

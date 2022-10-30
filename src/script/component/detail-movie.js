@@ -7,9 +7,6 @@ class DetailMovie extends HTMLElement {
     this.render();
   }
 
-  renderRelated() {
-    console.log(this._movies);
-  }
 
   render() {
     let runtime = this._details.runtime * 60;
@@ -54,10 +51,10 @@ class DetailMovie extends HTMLElement {
         <h1 class="text-white text-2xl mb-2">Top Cast</h1>
           <div class="flex gap-3 overflow-x-scroll">
             ${casts
-              .filter((cast) => cast.profile_path !== null)
-              .slice(0, 15)
-              .map((cast) =>
-                `
+        .filter((cast) => cast.profile_path !== null)
+        .slice(0, 15)
+        .map((cast) =>
+          `
             <div class="max-w-[150px]">          
               <img src="https://image.tmdb.org/t/p/w500${cast.profile_path}" class="rounded-full min-w-[120px] h-[120px] object-cover object-top">
               <figcation class="text-center">
@@ -66,8 +63,8 @@ class DetailMovie extends HTMLElement {
               </figcation>
            </div>
              `.trim()
-              )
-              .join('')}
+        )
+        .join('')}
           </div>
       </div>
     </div>

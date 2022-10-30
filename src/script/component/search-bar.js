@@ -53,7 +53,7 @@ class SearchBar extends HTMLElement {
       padding-bottom: 1rem;
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       :host{
         width: 24rem;
       }
@@ -88,7 +88,7 @@ class SearchBar extends HTMLElement {
       --tw-ring-color: rgb(236 179 101 / var(--tw-ring-opacity));
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       .input-search {
         display: block;
         width: 24rem;
@@ -96,7 +96,7 @@ class SearchBar extends HTMLElement {
     }
     .loader-icon {
       position: absolute;
-      top: -18px;
+      top: -10px;
       right: -0.25rem;
       z-index: 10;
       margin-top: auto;
@@ -128,9 +128,9 @@ class SearchBar extends HTMLElement {
       color: rgb(255 255 255 / var(--tw-text-opacity));
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       .loader-icon {
-        top: 1px;
+        top: -10px;
       }
     }
     .btn-show-search {
@@ -147,9 +147,9 @@ class SearchBar extends HTMLElement {
       cursor: pointer;
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       .btn-show-search {
-        top: 0.5rem;
+        top: 0;
         opacity: 0.5;
       }
     }
@@ -159,7 +159,7 @@ class SearchBar extends HTMLElement {
 
     </style>
     <div class="relative">
-    <input placeholder="Search Movie..." type="search" id="inputSearch" class="input-search hidden  "/>
+    <input placeholder="Search Movie..." type="text" id="inputSearch" class="input-search hidden  "/>
     <span class="loader hidden loader-icon">${feather.icons.loader.toSvg()}</span>
     <span class="btn-show-search">${feather.icons.search.toSvg()}</span>
     </div>
@@ -171,7 +171,7 @@ class SearchBar extends HTMLElement {
       querySelectorDeep('.btn-show-search').classList.add('hidden');
       querySelectorDeep('.loader').classList.add('top-0');
       querySelectorDeep('.btn-show-search').classList.remove('-top-[10px]');
-      document.querySelector('.logo').classList.add('hidden', 'lg:block');
+      querySelectorDeep('.logo').classList.add('hidden', 'lg:block');
       querySelectorDeep('search-bar').classList.add('w-full', 'lg:w-fit');
     });
     this.shadowDOM.querySelector('#inputSearch').addEventListener('blur', function () {
@@ -180,7 +180,7 @@ class SearchBar extends HTMLElement {
       querySelectorDeep('.btn-show-search').classList.remove('hidden');
       querySelectorDeep('.btn-show-search').classList.add('-top-[10px]');
       querySelectorDeep('.loader').classList.add('hidden');
-      document.querySelector('.logo').classList.remove('hidden');
+      querySelectorDeep('.logo').classList.remove('hidden');
       querySelectorDeep('search-bar').classList.remove('w-full');
     });
     this.shadowDOM.querySelector('#inputSearch').addEventListener('focus', function () {

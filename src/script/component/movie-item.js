@@ -5,6 +5,7 @@ class MovieItem extends HTMLElement {
     this.render();
   }
 
+
   render() {
     this.innerHTML = `
     <div class="movie-card">
@@ -15,8 +16,10 @@ class MovieItem extends HTMLElement {
     </div>
     `;
 
-    const showDetail = this.querySelector('.show-detail');
-    showDetail.addEventListener('click', this._clickEvent);
+    this.querySelector('.show-detail').addEventListener('click', () => {
+
+    })
+
   }
 }
 
