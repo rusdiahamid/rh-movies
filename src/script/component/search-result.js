@@ -20,7 +20,6 @@ class SearchResult extends HTMLElement {
       movieContainer.innerHTML = `<h1 class="text-white mx-auto text-xl">No results found.</h1>`;
     }
     else {
-      console.log(this._movies)
       this._movies
         .filter((movie) => movie.backdrop_path !== null)
         .forEach((movie) => {

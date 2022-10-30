@@ -8,7 +8,7 @@ export class MovieSource {
       .then((response) => {
         if (!response.ok) {
           response.json().then(response => {
-            if (response.status_code === 7 || response.status_code === 34) {
+            if (response.status_code) {
               Swal.fire('something went wrong!', `${response.status_message}`, 'error');
             }
             Swal.fire('something went wrong!', `${response.errors[0]}`, 'error');
@@ -20,45 +20,49 @@ export class MovieSource {
         }
       }
       )
-
   }
 
   static getPlayingMovies() {
     return fetch(`${baseUrl}movie/now_playing?api_key=${apiKey}&language=en-US&page=1&region=ID`)
       .then((response) => response.json())
-      .then((response) => response.results);
-  }
-
-  static getPopularMovies() {
-    return fetch(`${baseUrl}movie/popular?ap_key=${apiKey}&language=en-US&page=1&region=ID`)
-      .then((response) => response.json())
       .then((response) => {
         {
-          console.log(response.results)
           if (response.results) {
-            // return Promise.resolve(response.results);
-            console.log(Promise.resolve(response.results));
+            return Promise.resolve(response.results);
           } else {
             return Promise.reject(`Movie is not found`);
-            // console.log(Promise.reject(`Movie not found`));
           }
         }
       });
   }
+
+  static getPopularMovies() {
+    return fetch(`${baseUrl}movie/popular?api_key=${apiKey}&language=en-US&page=1&region=ID`)
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.results) {
+          return Promise.resolve(response.results);
+        } else {
+          return Promise.reject(`Movie is not found`);
+        }
+      });
+  }
+
   static getMovieDetail(id) {
     return fetch(`${baseUrl}movie/${id}?api_key=${apiKey}&language=en-US`)
       .then((response) => response.json())
       .then((response) => response);
   }
+
   static getMovieCredits(id) {
     return fetch(`${baseUrl}movie/${id}/credits?api_key=${apiKey}&language=en-US`)
       .then((response) => response.json())
       .then((response) => response);
   }
-  static getRelatedMoviea(id) {
+
+  static getRelatedMovie(id) {
     return fetch(`${baseUrl}movie/${id}/recommendations?api_key=${apiKey}&language=en-US&page=1`)
       .then((response) => response.json())
       .then((response) => response.results)
-      .catch((response) => console.log('NOT OK! : ' + response));
   }
 }

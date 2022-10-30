@@ -16,13 +16,21 @@ const main = () => {
     try {
       const movies = await MovieSource.getPopularMovies();
       popularMoviesList.movies = movies;
-    } catch (error) {
-      popularMoviesList.renderError = error;
+    } catch (message) {
+      const fallbackResult = (message) => popularMoviesList.renderError(message);
+      fallbackResult(message);
     }
   };
+
+
   const nowPlayingMovies = async () => {
-    const movies = await MovieSource.getPlayingMovies();
-    playingMoviesList.movies = movies;
+    try {
+      const movies = await MovieSource.getPlayingMovies();
+      playingMoviesList.movies = movies;
+    } catch (message) {
+      const fallbackResult = (message) => playingMoviesList.renderError(message);
+      fallbackResult(message);
+    }
   };
 
   const onInputSearch = (e) => {
