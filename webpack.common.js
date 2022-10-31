@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -19,12 +19,14 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
     },
+    minimize: true,
     minimizer: [
+      new TerserPlugin(),
       new CssMinimizerPlugin(),
     ],
 
   },
-  devtool: false,
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
