@@ -1,10 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 
 module.exports = {
   entry: {
-    // main: './src/app.js',
-    // vendor: './src/vendor.js'
     main: {
       import: './src/app.js',
       dependOn: 'shared',
@@ -19,6 +19,9 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
     },
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
 
   },
   devtool: false,

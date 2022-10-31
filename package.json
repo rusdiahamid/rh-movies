@@ -4,6 +4,7 @@
     "@babel/preset-env": "^7.19.4",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.2.2",
     "eslint": "^8.26.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
@@ -84,10 +85,10 @@
     "yaml": "^1.10.2"
   },
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./src/style/style.css --watch",
-    "serve": "webpack serve --config webpack.dev.js",
+    "start-css": "npx tailwindcss -i ./src/input.css -o ./src/style/style.css --watch",
     "start-dev": "webpack --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "serve": "webpack serve --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
