@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+
 
 module.exports = {
   entry: {
@@ -14,17 +13,6 @@ module.exports = {
       dependOn: 'shared',
     },
     shared: ['moment', 'feather-icons', 'sweetalert2', 'query-selector-shadow-dom', 'regenerator-runtime'],
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-    minimize: true,
-    minimizer: [
-      new TerserPlugin(),
-      new CssMinimizerPlugin(),
-    ],
-
   },
   devtool: false,
   module: {
