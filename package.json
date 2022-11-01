@@ -86,8 +86,8 @@
     "yaml": "^1.10.2"
   },
   "scripts": {
-    "start-css": "npx tailwindcss -i ./src/input.css -o ./src/style/style.css --watch",
-    "start-dev": "webpack --config webpack.dev.js",
+    "tailwindcss": "npx tailwindcss -i ./src/input.css -o ./src/style/style.css --watch",
+    "dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "serve": "webpack serve --config webpack.dev.js"
   },
