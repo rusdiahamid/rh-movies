@@ -165,7 +165,7 @@ class SearchBar extends HTMLElement {
     </div>
     `;
 
-    this.shadowDOM.querySelector('.btn-show-search').addEventListener('click', function () {
+    this.shadowDOM.querySelector('.btn-show-search').addEventListener('click', () => {
       querySelectorDeep('#inputSearch').classList.remove('hidden');
       querySelectorDeep('#inputSearch').focus();
       querySelectorDeep('.btn-show-search').classList.add('hidden');
@@ -174,7 +174,7 @@ class SearchBar extends HTMLElement {
       querySelectorDeep('.logo').classList.add('hidden', 'lg:block');
       querySelectorDeep('search-bar').classList.add('w-full', 'lg:w-fit');
     });
-    this.shadowDOM.querySelector('#inputSearch').addEventListener('blur', function () {
+    this.shadowDOM.querySelector('#inputSearch').addEventListener('blur', () => {
       querySelectorDeep('#inputSearch').classList.add('hidden');
       querySelectorDeep('#inputSearch').placeholder = 'Search Movie...';
       querySelectorDeep('.btn-show-search').classList.remove('hidden');
@@ -183,7 +183,7 @@ class SearchBar extends HTMLElement {
       querySelectorDeep('.logo').classList.remove('hidden');
       querySelectorDeep('search-bar').classList.remove('w-full');
     });
-    this.shadowDOM.querySelector('#inputSearch').addEventListener('focus', function () {
+    this.shadowDOM.querySelector('#inputSearch').addEventListener('focus', () => {
       querySelectorDeep('#inputSearch').placeholder = 'Type the Movie title, then click enter...';
     });
 

@@ -55,7 +55,7 @@ const main = () => {
 
   searchElement.keyupEvent = onInputSearch;
 
-  document.addEventListener('click', async function (e) {
+  document.addEventListener('click', async (e) => {
     if (e.target.classList.contains('show-detail')) {
       main.innerHTML = '';
       const detailMoviePage = document.createElement('detail-movie');
