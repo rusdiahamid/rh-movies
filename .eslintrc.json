@@ -27,6 +27,5 @@
             "error",
             "require"
         ]
-    },
-    "lint": "eslint ./src"
+    }
 }
