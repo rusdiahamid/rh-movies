@@ -1,3 +1,6 @@
+/*!***********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style/style.css ***!
+  \***********************************************************************/
 /*
 ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
 */
@@ -686,20 +689,34 @@ html {
   height: 120px;
 }
 
-.h-9 {
-  height: 2.25rem;
+.max-h-10 {
+  max-height: 2.5rem;
+}
+
+.max-h-40 {
+  max-height: 10rem;
+}
+
+.min-h-fit {
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
 }
 
 .w-full {
   width: 100%;
 }
 
-.w-36 {
-  width: 9rem;
+.w-1\/2 {
+  width: 50%;
 }
 
 .min-w-\[120px\] {
   min-width: 120px;
+}
+
+.min-w-full {
+  min-width: 100%;
 }
 
 .max-w-max {
@@ -768,11 +785,6 @@ html {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -1194,3 +1206,4 @@ vendor-logo {
     flex-direction: row;
   }
 }
+

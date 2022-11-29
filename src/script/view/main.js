@@ -3,6 +3,7 @@ import '../component/search-bar.js';
 import '../component/search-result.js';
 import '../component/popular-movies.js';
 import '../component/playing-movies.js';
+import '../component/upcoming-movies.js';
 import '../component/detail-movie.js';
 import { MovieSource } from '../data/movie-source.js';
 
@@ -10,6 +11,7 @@ const main = () => {
   const main = document.querySelector('main');
   const popularMoviesList = document.querySelector('popular-movies');
   const playingMoviesList = document.querySelector('playing-movies');
+  const upcomingMoviesList = document.querySelector('upcoming-movies');
   const searchElement = document.querySelector('search-bar');
 
   const popularMovies = async () => {
@@ -18,6 +20,16 @@ const main = () => {
       popularMoviesList.movies = movies;
     } catch (message) {
       const fallbackResult = (message) => popularMoviesList.renderError(message);
+      fallbackResult(message);
+    }
+  };
+
+  const upcomingMovies = async () => {
+    try {
+      const movies = await MovieSource.getUpcomingMovies();
+      upcomingMoviesList.movies = movies;
+    } catch (message) {
+      const fallbackResult = (message) => upcomingMoviesList.renderError(message);
       fallbackResult(message);
     }
   };
@@ -76,6 +88,7 @@ const main = () => {
   const movieOnload = () => {
     nowPlayingMovies();
     popularMovies();
+    upcomingMovies();
   };
 
   movieOnload();

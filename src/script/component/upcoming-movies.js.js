@@ -1,4 +1,4 @@
-import './movie-container.js';
+import '../component/movie-item.js';
 
 class UpcomingMovies extends HTMLElement {
   set movies(movies) {
@@ -14,7 +14,7 @@ class UpcomingMovies extends HTMLElement {
   }
 
   renderError(error) {
-    this.innerHTML = `<h1 class="section-title">Upcoming Movies</h1>`;
+    this.innerHTML = `<h1 class="section-title">Popular Movies</h1>`;
     const movieContainer = document.createElement('movie-container');
     this.appendChild(movieContainer);
     movieContainer.innerHTML = `<h1 class="text-white mx-auto text-xl">${error}</h1>`;
